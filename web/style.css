@@ -1,0 +1,94 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap'); */
+@font-face {
+  font-family: "Acrom";
+  src: url("Acrom-Bold.ttf") format("truetype");
+}
+
+body {
+  visibility: hidden;
+  user-select: none;
+  white-space: nowrap;
+  margin: 0;
+  user-select: none;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+p {
+  margin: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
+}
+
+#eyeSvg {
+  transition: fill 0.5s ease;
+}
+
+#eye {
+  color: #FFC0CB;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 22pt;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#eye.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+#options-wrapper {
+  position: absolute;
+  top: calc(48.4%);
+  left: calc(50% + 18pt);
+}
+
+.option-container {
+  border-radius: 5px 0px 0px 5px;
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Acrom";
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+  font-size: 11pt;
+  line-height: 22pt;
+  vertical-align: middle;
+  margin: 2pt;
+  transform: scale(0);
+  transition: 300ms;
+  transform-origin: left top;
+  scale: 0;
+  height: 22pt;
+  width: 150pt;
+  top: 0;
+}
+
+.option-container.show {
+  transform: scale(1);
+  scale: 1;
+  margin-left: 2pt;
+}
+
+.option-container:hover {
+  transform-origin: left top;
+  color: white;
+  margin-left: 4pt;
+}
+
+.option-icon {
+  font-size: 12pt;
+  line-height: 22pt;
+  width: 14pt;
+  margin: 5pt;
+}
+
+.option-label {
+  font-weight: 500;
+}
