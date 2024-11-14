@@ -1,0 +1,148 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap'); */
+@font-face {
+  font-family: "Acrom";
+  src: url("Acrom-Bold.ttf") format("truetype");
+}
+
+body {
+  visibility: hidden;
+  user-select: none;
+  white-space: nowrap;
+  margin: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+p {
+  margin: 0;
+}
+
+#eyeSvg {
+  transition: fill 0.5s ease;
+}
+
+#eye {
+  color: #1f1f1f;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 22pt;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#eye.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
+}
+
+#options-wrapper {
+  position: absolute;
+  top: calc(48.4%);
+  left: calc(50% + 18pt);
+}
+
+/* Base styling with solid background and shine effect on hover */
+.option-container {
+  position: relative;
+  border-radius: 3px; /* Subtle rounded corners */
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Acrom";
+  background: rgba(20, 20, 20, 0.7);
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+  font-size: 11pt;
+  line-height: 22pt;
+  vertical-align: middle;
+  margin: 2pt;
+  height: 22pt;
+  width: 150pt;
+  overflow: hidden;
+  opacity: 0; /* Start hidden */
+  transform: scale(0.8); /* Start slightly smaller for pop-in effect */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Show state for pop-in animation */
+.option-container.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Shine effect */
+.option-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: transform 1.5s ease;
+}
+
+/* Trigger the shine animation on hover */
+.option-container:hover::before {
+  animation: shine-animation 1.0s ease forwards;
+}
+
+/* Keyframes for the shine effect */
+@keyframes shine-animation {
+  0% {
+    left: -100%;
+    opacity: 1;
+  }
+  70% {
+    left: 100%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px #ffffff) brightness(0.5);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #ffffff) brightness(0.5);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #ffffff) brightness(0.5);
+  }
+}
+
+/* Text and icon styling */
+.option-icon,
+.option-label {
+  position: relative;
+  z-index: 2;
+}
+
+.option-icon {
+  font-size: 12pt;
+  line-height: 22pt;
+  width: 14pt;
+  margin: 5pt;
+}
+
+.option-label {
+  font-weight: 500;
+}
